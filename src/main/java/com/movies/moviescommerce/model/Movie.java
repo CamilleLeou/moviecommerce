@@ -1,6 +1,19 @@
 package com.movies.moviescommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+
 public class Movie {
+
+    @Id
+    @GeneratedValue
     private int id;
     private String nom;
 

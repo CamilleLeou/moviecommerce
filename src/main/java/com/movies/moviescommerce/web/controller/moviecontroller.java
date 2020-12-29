@@ -10,18 +10,23 @@ import java.util.List;
 public class moviecontroller {
 
     @Autowired
-    private MovieDao movies;
+    private MovieDao movieDao;
 
     //récupère la liste de films
     @RequestMapping(value="/Movies", method= RequestMethod.GET)
     public List<Movie> listMovies() {
-        return movies.findAll();
+        return movieDao.findAll();
     }
 
     //récupère un film par son id
     @GetMapping(value="/Movies/{id}")
     public Movie afficherUnFilm(@PathVariable int id) {
-        return movies.findById(id);
+        return movieDao.findById(id);
+    }
+
+    @PostMapping(value= "/Movies")
+    public void ajouterUnFilm(@RequestBody Movie movie) {
+        movieDao.save(movie);
     }
 
 }
