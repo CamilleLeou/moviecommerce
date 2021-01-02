@@ -1,6 +1,6 @@
 version: "3.9"
 services:
   fifthregion-service:
-    image: moviecommerce:latest
+    image: moviescommerce:latest
     ports:
       - 8080:8080

@@ -48,16 +48,3 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
-
-jib {
-	from {
-		image = "adoptopenjdk/openjdk15:jre-15.0.1_9-debianslim"
-	}
-	to {
-		image = "moviecommerce"
-	}
-	container {
-		jvmFlags = listOf("--enable-preview")
-		ports = listOf("8080")
-	}
-}
