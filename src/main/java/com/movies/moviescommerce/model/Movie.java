@@ -1,4 +1,11 @@
 package com.movies.moviescommerce.model;
+import com.movies.moviescommerce.Actor.Actor;
+import com.movies.moviescommerce.Actor.ActorService;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,6 +32,16 @@ public class Movie {
         this.nom=nom;
     }
 
+    @Transient
+    private List<Actor> actors;
+
+    public void addActor(Actor actor) {
+        if (this.actors == null) {
+            this.actors = new ArrayList<>();
+        }
+        this.actors.add(actor);
+    }
+
     public int getId() {
         return id;
     }
@@ -46,6 +63,7 @@ public class Movie {
     public String toString(){
         return "Product{"+
                 "id=" + id +
-                ", nom='"+ nom + '\'' + '}';
+                ", nom='"+ nom +
+                ", acteur='" + actors + '\'' + '}';
     }
 }
