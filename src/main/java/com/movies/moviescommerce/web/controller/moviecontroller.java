@@ -17,7 +17,7 @@ public class moviecontroller {
 
     @Autowired
     private ActorService actorService;
-    //@Autowired
+    @Autowired
     private MovieDao movieDao;
 
     @Bean
